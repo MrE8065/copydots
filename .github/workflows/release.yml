@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Ruby
-        run: apt -y install build-essential libyaml-dev ruby-dev
+        run: sudo apt -y install build-essential libyaml-dev ruby-dev
 
       - name: Install bashly
         run: gem install bashly
