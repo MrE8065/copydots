@@ -16,8 +16,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        run: sudo apt -y install build-essential libyaml-dev ruby-dev
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with: 
+          ruby-version: '3.2'
+
+      - name: Ruby dependencies
+        run: sudo apt -y install libyaml-dev
 
       - name: Install bashly
         run: gem install bashly
