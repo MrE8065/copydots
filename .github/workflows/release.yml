@@ -1,0 +1,40 @@
+name: Build and Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v1.0.0)'
+        required: true
+
+jobs:
+  build:
+    name: Build CLI tool
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+
+      - name: Install bashly
+        run: gem install bashly
+
+      - name: Generate CLI
+        run: bashly generate
+
+      - name: Make script executable
+        run: chmod +x copydots
+
+      - name: Create GitHub Release (manual)
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: Release ${{ github.event.inputs.version }}
+          files: copydots
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

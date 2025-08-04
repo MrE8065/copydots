@@ -1,0 +1,23 @@
+name: copydots
+help: Copy your dotfiles to a folder
+version: 1.0.0
+
+variables:
+  - name: config_file
+    value: copydots-config.yml
+
+commands:
+  - name: init
+    help: Create the config file
+
+  - name: add
+    help: Copy the files/folders in the config file to a folder (current directory if not specified)
+    flags:
+      - long: --output
+        short: -o
+        arg: output_path
+        help: The destination folder (current if not specified)
+
+  - name: show
+    help: Show all the entries in the config file
+
