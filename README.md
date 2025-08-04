@@ -2,6 +2,13 @@
 Simple CLI tool to copy your dotfiles. Made with [Bashly](https://bashly.dev).
 Create a config file, specify which files you want to copy and keep track of them.
 
+## Install
+
+```
+curl -sL https://raw.githubusercontent.com/MrE8065/copydots/refs/heads/main/copydots | sudo tee /usr/local/bin/copydots > /dev/null
+sudo chmod +x /usr/local/bin/copydots
+```
+
 ## Usage
 
 ```
