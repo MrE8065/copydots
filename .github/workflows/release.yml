@@ -21,11 +21,14 @@ jobs:
         with: 
           ruby-version: '3.2'
 
-      - name: Ruby dependencies
-        run: sudo apt -y install libyaml-dev
+      - name: Dependencies
+        run: sudo apt -y install build-essential libyaml-dev bash-completion
 
       - name: Install bashly
         run: gem install bashly
+
+      - name: Bashly completions
+        run: bashly completions --install
 
       - name: Generate CLI
         run: bashly generate
