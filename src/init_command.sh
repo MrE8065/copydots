@@ -15,6 +15,11 @@ my_folder:
 my_file:
   path: "/path/to/file"
   desc: "An important file"
+
+my_file:
+  path: "/path/to/file"
+  desc: "An sepecial file"
+  output: "/different/path"
 EOL
 
-echo "The config file '$config_file' was create successfully"
+echo "The config file '$config_file' was created successfully"
